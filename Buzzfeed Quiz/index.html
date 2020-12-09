@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+        function runTest() {
+            let weatherQuestions = document.getElementsByClassName('weather');
+            for(let i=0; i<weatherQuestions.length; i++){
+                console.log(weatherQuestions[i].defaultValue, "checked: " + weatherQuestions[i].checked);
+            }
+            let els = [
+                document.getElementById("common").checked, //0 Question one
+                document.getElementById("Spelt").checked,  //1
+                document.getElementById("durum").checked,  //2
+                document.getElementById('sunny').checked,  //3 Question two
+                document.getElementById('rainy').checked,  //4
+                document.getElementById('snowy').checked,  //5
+                document.getElementById('baseball').checked, //6 Question three
+                document.getElementById('beanie').checked, //7
+                document.getElementById('Sun_Hat').checked,//8
+                document.getElementById('brown').checked,  //9 Question three
+                document.getElementById('black').checked,  //10
+                document.getElementById('blonde').checked, //11
+            ]
+            if (els[0] == true && els[3] == true && els[6] == true && els[9] == true) {
+                console.log("Sourdough");
+            } else if (els[1] == true && els[4] == true && els[7] == true) {
+                console.log("Baguette");
+
+            } else if (els[2] == true && els[5] == true && els[8] == true && els[11] == true) {
+                console.log("Brioche");
+            } else {
+                console.log("you are not bread.")
+            }
+        }
+
+        function pigLatin(word) {
+            if (!word) {
+                console.log("There's no word here");
+                return '';
+            }
+            vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+            if (vowels.includes(word[0].toLowerCase())) {  // If a word starts with a vowel add the word "way" at the end of the word.
+                return word + 'way';
+            } else if (vowels.includes(word[1])) {// If a word starts with a consonant and a vowel, put the first letter of the word at the end of the word and add "ay."
+                return word.slice(1) + word[0].toLowerCase() + 'ay';
+            } else { // If a word starts with two consonants move the two consonants to the end of the word and add "ay."
+                return word.slice(2).toLowerCase() + word.slice(0, 2).toLowerCase() + 'ay';
+            }
+        }
+
+        function decodePigLatin(word) {
+
+        }
+    let str = "The quick brown fox jumps over the lazy dog."
+        for (let i=0; i<str.length; i++){
+            console.log(str[i])
+        }
+
+    </script>
+    <style>
+        body {
+            font-family: Arial;
+            color: #777777;
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+<h1>What kind of bread are you?</h1>
+<h3>Pick your answers to the following questions and we'll tell you!</h3>
+
+<p>What's you favorite kind of wheat?</p>
+<input type="radio" id="common" class="wheat" name="wheat" value="common">
+<label for="common">Common</label><br>
+<input type="radio" id="Spelt" class="wheat" name="wheat" value="common">
+<label for="Spelt">Spelt</label><br>
+<input type="radio" id="durum" class="wheat" name="wheat" value="common">
+<label for="durum">Durum</label><br>
+
+
+<p>What's your favorite kind of weather?</p>
+<input type="radio" id="sunny" class="weather" name="weather" value="sunny">
+<label for="sunny">Sunny</label><br>
+<input type="radio" id="rainy" class="weather" name="weather" value="rainy">
+<label for="rainy">Rainy</label><br>
+<input type="radio" id="snowy" class="weather" name="weather" value="snowy">
+<label for="snowy">Snowy</label><br>
+
+<p>Which hat do you prefer?</p>
+<input type="radio" id="baseball" class="hat" name="hat" value="baseball">
+<label for="baseball">
+    <img src="61j-nUQuKRL._AC_UX385_.jpg" alt="baseball cap" width="150px">
+</label><br>
+<input type="radio" id="beanie" name="hat" class="hat" value="beanie">
+<label for="beanie"><img src="beanie.jfif" alt="beanie" width="150px"></label><br>
+<input type="radio" id="Sun_Hat" class="hat" name="hat" value="sun hat">
+<label for="Sun_Hat"><img src="sunhat.jfif" alt="Sun Hat" width="150px"></label><br>
+
+
+<p>What color is your hair?</p>
+<input type="radio" id="brown" class="color" name="haircolor" value="brown">
+<label for="brown">Brown</label><br>
+<input type="radio" id="black" class="color" name="haircolor" value="black">
+<label for="black">Black</label><br>
+<input type="radio" id="blonde" class="color" name="haircolor" value="blonde">
+<label for="blonde">Blonde</label><br>
+
+
+<input type="submit" value="submit" onclick="runTest()">
+
+</body>
+</html>
