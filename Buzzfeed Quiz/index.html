@@ -5,10 +5,9 @@
     <title>Title</title>
     <script>
 
-
         function runTest() {
             let weatherQuestions = document.getElementsByClassName('weather');
-            for(let i=0; i<weatherQuestions.length; i++){
+            for (let i = 0; i < weatherQuestions.length; i++) {
                 console.log(weatherQuestions[i].defaultValue, "checked: " + weatherQuestions[i].checked);
             }
             let els = [
@@ -42,23 +41,51 @@
                 console.log("There's no word here");
                 return '';
             }
-            vowels = ['a', 'e', 'i', 'o', 'u', 'y']
-            if (vowels.includes(word[0].toLowerCase())) {  // If a word starts with a vowel add the word "way" at the end of the word.
+            let vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+            let startsWithVowel = vowels.includes(word[0].toLowerCase());
+            if (startsWithVowel) {
                 return word + 'way';
-            } else if (vowels.includes(word[1])) {// If a word starts with a consonant and a vowel, put the first letter of the word at the end of the word and add "ay."
-                return word.slice(1) + word[0].toLowerCase() + 'ay';
-            } else { // If a word starts with two consonants move the two consonants to the end of the word and add "ay."
-                return word.slice(2).toLowerCase() + word.slice(0, 2).toLowerCase() + 'ay';
+            } else {
+                let startsWithConsonantAndVowel = vowels.includes(word[1]);
+                if (startsWithConsonantAndVowel) {
+                    return word.slice(1) + word[0].toLowerCase() + 'ay';
+                } else { // If a word starts with two consonants move the two consonants to the end of the word and add "ay."
+                    return word.slice(2).toLowerCase() + word.slice(0, 2).toLowerCase() + 'ay';
+                }
             }
         }
 
         function decodePigLatin(word) {
+            if (!word) {
+                console.log("There's no word here");
+                return '';
+            }
+
+            let lcWord = word.toLowerCase()
+            let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+            let endsWithWayStartsWithVowel = word.slice(-3) === 'way' && vowels.includes(lcWord[0]);
+            let startsWithTwoConsonants = !vowels.includes(word[word.length - 4]) && !vowels.includes(word[word.length - 3] && word.slice(-2) === 'ay');
+            let endsWithAyStartsWithVowel = word.slice(-2) == 'ay' && vowels.includes(lcWord[0]);
+            if (endsWithWayStartsWithVowel) {
+                return word.slice(0, -3);
+            } else if (startsWithTwoConsonants) {
+                return word.slice(-4, -2) + word.slice(0, -4)
+            } else if (endsWithAyStartsWithVowel) {
+                return word.slice(-3, -2) + word.slice(0, -3);
+            }
+
 
         }
-    let str = "The quick brown fox jumps over the lazy dog."
-        for (let i=0; i<str.length; i++){
-            console.log(str[i])
+
+        let str = "The quick brown fox jumps over the lazy dog."
+        // write a function that takes in a sentence, converts it to pigLatin, and returns another paragraph of piglatin
+        // write another function that does the inverse.
+        function pigSentence(sentence){
+            sentence.split(" ");
+            console.log(sentence);
         }
+
+        let word = 'aracterchay'
 
     </script>
     <style>
@@ -111,7 +138,7 @@
 <label for="blonde">Blonde</label><br>
 
 
-<input type="submit" value="submit" onclick="runTest()">
+<input type="submit" value="submit" onclick="runTest()" onclick="alert(" Your Mom")">
 
 </body>
 </html>
