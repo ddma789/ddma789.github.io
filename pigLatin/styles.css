@@ -1,0 +1,61 @@
+.button{
+    background-color: #fc8eac;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin-top: 160px;
+    cursor: pointer;
+    alignment: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.
+footer{
+    width: 1920px;
+    height: 104px;
+    background: #414141;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    box-shadow: 0px -5px 6px rgba(0, 0, 0, 0.16);
+
+}
+
+.text{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 125px;
+
+
+}
+.button1{
+
+    background-color: #fc8eac;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin-top: 165px;
+    cursor: pointer;
+    alignment: center;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+
+
+}

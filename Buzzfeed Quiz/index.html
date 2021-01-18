@@ -36,23 +36,29 @@
             }
         }
 
-        function pigLatin(word) {
+        function encodePigLatin(word) {
             if (!word) {
                 console.log("There's no word here");
                 return '';
             }
+            let answer = word
             let vowels = ['a', 'e', 'i', 'o', 'u', 'y']
             let startsWithVowel = vowels.includes(word[0].toLowerCase());
             if (startsWithVowel) {
-                return word + 'way';
+                answer = word + 'way';
             } else {
                 let startsWithConsonantAndVowel = vowels.includes(word[1]);
                 if (startsWithConsonantAndVowel) {
-                    return word.slice(1) + word[0].toLowerCase() + 'ay';
+                    answer = word.slice(1) + word[0].toLowerCase() + 'ay';
                 } else { // If a word starts with two consonants move the two consonants to the end of the word and add "ay."
-                    return word.slice(2).toLowerCase() + word.slice(0, 2).toLowerCase() + 'ay';
+                    answer = word.slice(2).toLowerCase() + word.slice(0, 2).toLowerCase() + 'ay';
                 }
+
+
             }
+            return capWordIfNeeded(word, answer);
+
+
         }
 
         function decodePigLatin(word) {
@@ -62,30 +68,60 @@
             }
 
             let lcWord = word.toLowerCase()
+            let answer = lcWord
             let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-            let endsWithWayStartsWithVowel = word.slice(-3) === 'way' && vowels.includes(lcWord[0]);
-            let startsWithTwoConsonants = !vowels.includes(word[word.length - 4]) && !vowels.includes(word[word.length - 3] && word.slice(-2) === 'ay');
-            let endsWithAyStartsWithVowel = word.slice(-2) == 'ay' && vowels.includes(lcWord[0]);
+            let endsWithWayStartsWithVowel = lcWord.slice(-3) === 'way' && vowels.includes(lcWord[0]);
+            let startsWithTwoConsonants =
+                !(vowels.includes(lcWord[0]) || vowels.includes(lcWord[1])) &&
+                lcWord.slice(-2) === 'ay';
+            let endsWithAyStartsWithVowel = lcWord.slice(-2) === 'ay' && vowels.includes(lcWord[0]);
             if (endsWithWayStartsWithVowel) {
-                return word.slice(0, -3);
+                answer = lcWord.slice(0, -3);
+
             } else if (startsWithTwoConsonants) {
-                return word.slice(-4, -2) + word.slice(0, -4)
+                answer = lcWord.slice(-4, -2) + lcWord.slice(0, -4)
             } else if (endsWithAyStartsWithVowel) {
-                return word.slice(-3, -2) + word.slice(0, -3);
+                answer = lcWord.slice(-3, -2) + lcWord.slice(0, -3);
             }
-
-
+            return capWordIfNeeded(word, answer);
         }
 
-        let str = "The quick brown fox jumps over the lazy dog."
+        function capWordIfNeeded(firstWord, secondWord) {
+            if (firstWord[0] === firstWord[0].toUpperCase()) {
+                return secondWord[0].toUpperCase() + secondWord.substring(1).toLowerCase();
+            }
+            return secondWord;
+        }
+
+
+        let str = "The quick brown fox named Roy jumps over the lazy dog named Rex"
         // write a function that takes in a sentence, converts it to pigLatin, and returns another paragraph of piglatin
         // write another function that does the inverse.
-        function pigSentence(sentence){
-            sentence.split(" ");
-            console.log(sentence);
+        function pigSentence(sentence) {
+            let words = sentence.split(" ");
+            let encodeWords = []
+            for (let i = 0; i < words.length; i++) {
+
+                encodeWords[i] = encodePigLatin(words[i])
+
+            }
+
+            let encodeSentence = encodeWords.join(" ");
+            return encodeSentence
         }
 
-        let word = 'aracterchay'
+        function engSentence(sentence) {
+            let words = sentence.split(" ");
+            let decodeWords = []
+            for (let i = 0; i < words.length; i++) {
+                decodeWords[i] = decodePigLatin(words[i])
+
+            }
+
+            let decodeSentence = decodeWords.join(" ");
+            return decodeSentence
+        }
+
 
     </script>
     <style>
@@ -138,7 +174,7 @@
 <label for="blonde">Blonde</label><br>
 
 
-<input type="submit" value="submit" onclick="runTest()" onclick="alert(" Your Mom")">
+<input type="submit" value="submit" onclick="runTest()">
 
 </body>
 </html>

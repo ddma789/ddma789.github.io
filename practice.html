@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Eight Ball</title>
+
+</head>
+<body>
+
+
+<h1>Magic Eight Ball</h1>
+<script>
+    // let responses = ['without a doubt', 'ask me again later', "Don't count on it"]
+    // let randomNumber = Math.floor(Math.random() * responses.length)
+    //
+    // document.writeln("<p>Magic Eight Ball says....<strong>"+ responses[randomNumber] + "</strong><p/>")
+    // console.log(randomNumber)
+
+    /*
+    * use window.confirm() to ask if the user would like to see a popup window. if so, make a small popup saying "hello world!"*/
+    if(confirm("Are you sure you want to do this?")){
+        let myWindow = open("", "width=250, height=100")
+        myWindow.document.writeln("<h1>Hello World!</h1>")
+
+    }
+
+</script>
+
+</body>
+</html>

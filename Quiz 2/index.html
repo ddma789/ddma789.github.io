@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .question {
+            color: black;
+        }
+
+        .pressed {
+            color: red;
+        }
+
+    </style>
+    <script>
+        /* let famousQuestions = document.getElementsByClassName('famous');
+         for (let i = 0; i < famousQuestions.length; i++) {
+             console.log(famousQuestions[i].defaultValue, "checked: " + famousQuestions[i].checked);
+         }
+         let answers = [document.getElementById("yesfamous").checked,
+             document.getElementById("nofamous").checked,
+             document.getElementById("yesWorld").checked,
+             document.getElementById("noWorld").checked,
+             document.getElementById("yesRich").checked,
+             document.getElementById("noRich").checked,
+
+         ]
+*/
+        function testSubmit() {
+            /*
+            * get all paragraphs that have class "not pressed", change them to pressed
+            *
+*/
+            let questions = document.querySelectorAll(".question")
+
+            for (let node of questions) {
+                // if classname is one, change it to the other, else change it from the other to one
+                if (node.classList.contains('pressed')) {
+                    console.log("contains")
+                    node.classList.remove('pressed')
+                } else {
+                    console.log("not contains")
+                    node.classList.add('pressed')
+                }
+            }
+            let i= 0
+            while (i<questions.length){
+                console.log(document.getElementsByClassName().checked)
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        let i = 0;
+        while (i < 10) {
+            console.log(i++);
+        }
+
+
+/*
+        * initialize a variable
+        * while (a condition is true with the variable){
+        *   do something
+        *   increment the variable
+        * }
+        *
+        *
+        *
+        */
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 25
+        }
+
+        person.firstName = 'Mary'
+        person['firstName'] = "Jane"
+
+        for (let key in person) {
+            console.log(key, person[key])
+        }
+
+        let persons = ["John", "Joseph", "Jerry", "Jackie"]
+
+        for (let i = 0; i < persons.length; i++) {
+            console.log(persons[i]);
+        }
+
+        for (let person of persons) {
+            console.log(person)
+        }
+
+    </script>
+
+</head>
+<body>
+<div id="quiz">
+<h1>Will You Be World Famous?</h1>
+
+<p class="question">Are you famous?</p>
+<input type="radio" id="yesfamous" class="famous" name="famous" value="yes">
+<label for="yesfamous">Yes</label><br>
+<input type="radio" id="nofamous" class="famous" name="famous" value="no">
+<label for="nofamous">No</label><br>
+
+<p class="question">Have you been to another country?</p>
+<input type="radio" id="yesWorld" class="world" name="world" value="yesWorld">
+<label for="yesWorld">Yes</label><br>
+<input type="radio" id="noWorld" class="world" name="world" value="noWorld">
+<label for="noWorld">No</label><br>
+
+<p class="question">Are you a Billionaire?</p>
+<input type="radio" id="yesRich" class="rich" name="rich" value="yesRich">
+<label for="yesRich">Yes</label><br>
+<input type="radio" id="noRich" class="rich" name="rich" value="noRich">
+<label for="noRich">No</label><br>
+
+<p class="textQuestion"> How old are you?</p>
+<input type="text" id="age" class="age" name="age">
+<label for="age">Please type your age</label><br>
+
+<p class="question">Did you go to college?</p>
+<input type="radio" id="yesCollege" class="college" name="college" value="yesCollege">
+<label for="yesCollege">Yes</label><br>
+<input type="radio" id="NoCollege" class="college" name="college" value="NoCollege">
+<label for="NoCollege">No</label><br>
+
+
+<p class="question">Do you know anyone famous?</p>
+<input type="radio" id="yesKnowFame" class="knowFame" name="knowFame" value="yesKnowFame">
+<label for="yesKnowFame">Yes</label><br>
+<input type="radio"id="noKnowFame" class="knowFame" name="knowFame" value="noKnowFame">
+<label for="noKnowFame">No</label><br><br>
+<input type="submit" value="submit" onclick="testSubmit()" >
+
+</div>
+<button id="submit">Submit</button>
+
+<div id="results"></div>
+
+
+</body>
+</html>
