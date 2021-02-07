@@ -52,8 +52,8 @@ function capWordIfNeeded(firstWord, secondWord) {
     return secondWord;
 }
 function pigSentence(sentence) {
-    let input = document.getElementById('inputText')
-    let words = input.split(" ");
+    let inputText = document.getElementById('inputText').value
+    let words = inputText.split(" ");
     let encodeWords = []
     for (let i = 0; i < words.length; i++) {
 
@@ -70,7 +70,7 @@ function pigSentence(sentence) {
 
 
 function engSentence(sentence) {
-    let inputDecode = document.getElementById('inputText')
+    let inputDecode = document.getElementById('inputText').value
     let words = inputDecode.split(" ");
     let decodeWords = []
     for (let i = 0; i < words.length; i++) {
